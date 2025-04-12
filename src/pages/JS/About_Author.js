@@ -3,7 +3,7 @@ import "../CSS/About_Author.css"; // Use the same CSS styling
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Profile from "../../images/profile.png"; // Import image
 import Navbar from "./components/navbar";
-import TopContent from "./components/TopContent";
+// import TopContent from "./components/TopContent";
 import Footer from "./components/Footer";
 const Author = () => {
   return (

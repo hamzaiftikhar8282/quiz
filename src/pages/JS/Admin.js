@@ -2,8 +2,8 @@ import React from "react";
 import "../CSS/Admin.css"; // Use the same CSS styling
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import bookJourney from "../../images/treebook.png"; // Import image
-import Navbar from "./components/navbar";
-import TopContent from "./components/TopContent";
+// import Navbar from "./components/navbar";
+// import TopContent from "./components/TopContent";
 import Footer from "./components/Footer";
 import AdminNavbar from "./components/Admin_navbar";
 const AdminHome = () => {

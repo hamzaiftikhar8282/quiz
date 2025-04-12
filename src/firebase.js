@@ -18,6 +18,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 // Initialize Firestore
 const db = getFirestore(app);
-const currentUserId = auth.currentUser?.uid;
+// const currentUserId = auth.currentUser?.uid;
 
 export { auth, db }; // Export Firestore instance
