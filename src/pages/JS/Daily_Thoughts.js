@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../CSS/DailyThoughts.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Navbar from "./components/navbar";
-// import TopContent from "./components/TopContent";
+import TopContent from "./components/TopContent";
 import Footer from "./components/Footer";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -46,26 +46,7 @@ const ViewDailyThought = () => {
       <nav className="navbar">
         <Navbar />
       </nav>
-      <div className="background">
-  <div className="top-content">
-    <div className="text-section">
-
-      {/* Daily Thought Section */}
-      <div className="daily-thought">
-      </div>
-
-      <h2>Daily Thought</h2>
-      <p>
-      Every story holds the power to spark change within us, guiding us to rediscover who we truly are. Through the pages of a book, we journey to worlds unknown, yet return with new perspectives and wisdom. Storytelling is not just an escape; it's a reflection of our own lives, reminding us of the dreams, hopes, and strengths we often forget.     <br />
-        <button type="submit" className="content-button">Explore Now</button>
-      </p>
-    </div>
-
-    {/* <div className="image-section">
-      <img src={bookJourney} alt="Books" className="home-image" />
-    </div> */}
-  </div>
-</div>
+   <TopContent/>
 
       <div className="chapter-container">
         <h2 className="chapter-title">Daily Thought</h2>
