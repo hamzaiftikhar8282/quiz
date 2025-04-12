@@ -1,0 +1,120 @@
+/* Footer */
+.footer {
+  background: #222;
+  color: white;
+  padding: 1.5rem 1rem; /* Reduced padding */
+  text-align: center;
+  margin-top: 30px; /* Reduced margin top */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Footer Content Layout */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem; /* Reduced gap between sections */
+  padding-bottom: 1rem; /* Reduced padding */
+}
+
+/* Footer Sections */
+.footer-section {
+  margin: 1rem;
+  max-width: 250px; /* Reduced max width */
+  flex: 1 1 200px;
+  text-align: left;
+}
+
+/* Logo Section */
+.footer-section.logo {
+  text-align: center;
+  max-width: 100%;
+}
+
+.footer-logo {
+  height: 100px; /* Reduced logo size */
+  width: auto;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-logo:hover {
+  transform: scale(1.05); /* Slightly reduced hover scale */
+}
+
+/* Section Headings */
+.footer-section h3 {
+  font-size: 1.2rem; /* Reduced font size */
+  margin-bottom: 0.5rem; /* Reduced margin */
+  color:white;
+  font-weight: 600;
+}
+
+/* Paragraphs & Lists */
+.footer-section p,
+.footer-section ul {
+  font-size: 0.85rem; /* Reduced font size */
+  color: #ccc;
+  line-height: 1.4;
+  margin-bottom: 0.8rem; /* Reduced margin */
+}
+
+/* Footer Links */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  font-size: 0.85rem; /* Reduced font size */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  padding: 4px 0; /* Reduced padding */
+  display: block;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: none;
+  color: #E28B2C;
+}
+
+/* Social Icons */
+.social-icons a {
+  color: white;
+  margin: 0 8px; /* Reduced margin */
+  font-size: 1.4rem; /* Reduced icon size */
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #E28B2C;
+  transform: scale(1.05); /* Slightly reduced hover scale */
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 1rem; /* Reduced padding */
+  font-size: 0.9rem; /* Reduced font size */
+  color: #aaa;
+  margin-top: 1rem; /* Reduced margin top */
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.8rem; /* Reduced font size */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section {
+    max-width: 100%;
+  }
+}

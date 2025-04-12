@@ -1,0 +1,12 @@
+.success-text {
+    color: #28a745;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .error-text {
+    color: #dc3545;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
