@@ -159,8 +159,8 @@ const Chapter = () => {
             <h3>Login Required</h3>
             <p>You must be signed in to view this book.</p>
             <div className="modal-buttons">
-              <button onClick={() => (window.location.href = "/signup")}>
-                Go to Login
+              <button onClick={() => (window.location.href = "/SignUp")}>
+                Go to SignUp
               </button>
               <button onClick={() => setShowModal(false)}>Cancel</button>
             </div>
