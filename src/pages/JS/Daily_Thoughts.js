@@ -1,19 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "../CSS/DailyThoughts.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Navbar from "./components/navbar";
-// import TopContent from "./components/TopContent";
+import TopContent from "./components/TopContent";
 import Footer from "./components/Footer";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 
 const ViewDailyThought = () => {
   const [todayThought, setTodayThought] = useState(null);
-  const thoughtRef = useRef(null);
-
-  const scrollToThought = () => {
-    thoughtRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   useEffect(() => {
     const fetchTodayThought = async () => {
@@ -51,20 +46,28 @@ const ViewDailyThought = () => {
       <nav className="navbar">
         <Navbar />
       </nav>
-
       <div className="background">
-        <div className="top-content">
-          <div className="text-section">
-            <h2>Daily Thoughts</h2>
-            <p>
-              You are allowed to be both a masterpiece and a work in progress. Small steps every day lead to big changes over time. Your journey is unique — walk it with confidence and grace. Each day is a fresh page in the story of your life. The sunrise is proof that we can start again.
-            </p>
-            <button onClick={scrollToThought} className="content-button">Get Inspired</button>
-          </div>
-        </div>
+  <div className="top-content">
+    <div className="text-section">
+
+      {/* Daily Thought Section */}
+      <div className="daily-thought">
       </div>
 
-      <div className="chapter-container" ref={thoughtRef}>
+      <h2>Daily Thought</h2>
+      <p>
+      Every story holds the power to spark change within us, guiding us to rediscover who we truly are. Through the pages of a book, we journey to worlds unknown, yet return with new perspectives and wisdom. Storytelling is not just an escape; it's a reflection of our own lives, reminding us of the dreams, hopes, and strengths we often forget.     <br />
+        <button type="submit" className="content-button">Explore Now</button>
+      </p>
+    </div>
+
+    {/* <div className="image-section">
+      <img src={bookJourney} alt="Books" className="home-image" />
+    </div> */}
+  </div>
+</div>
+
+      <div className="chapter-container">
         <h2 className="chapter-title">Daily Thought</h2>
 
         {todayThought ? (
