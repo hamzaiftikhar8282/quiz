@@ -23,7 +23,7 @@ const Footer = () => {
           <ul>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Sign Up</a></li>
-            <li><a href="#">Browse Books</a></li>
+            {/* <li><a href="#">Browse Books</a></li> */}
             <li><a href="/Contact_Us">Contact Us</a></li>
           </ul>
         </div>
@@ -37,9 +37,9 @@ const Footer = () => {
         <div className="footer-section social">
           <h3>Follow Us</h3>
           <div className="social-icons">
-            <a href="#"><i className="fab fa-facebook"></i></a>
+            {/* <a href="#"><i className="fab fa-facebook"></i></a>
             <a href="#"><i className="fab fa-twitter"></i></a>
-            <a href="#"><i className="fab fa-instagram"></i></a>
+            <a href="#"><i className="fab fa-instagram"></i></a> */}
           </div>
         </div>
       </div>

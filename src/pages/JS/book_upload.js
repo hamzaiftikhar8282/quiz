@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/book_upload.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Navbar from "./components/navbar";
-import TopContent from "./components/TopContent";
+// import Navbar from "./components/navbar";
+// import TopContent from "./components/TopContent";
 import Footer from "./components/Footer";
 import axios from "axios";
 import { db } from "../../firebase";

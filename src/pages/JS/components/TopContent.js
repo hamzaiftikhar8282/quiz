@@ -1,6 +1,6 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import bookJourney from "../../../images/treebook.png"; // Import image
+// import bookJourney from "../../../images/treebook.png"; // Import image
 import "./TopContent.css"; // Import CSS
 import Navbar from "./navbar";
 const TopContent = () => {

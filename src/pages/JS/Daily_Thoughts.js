@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../CSS/DailyThoughts.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Navbar from "./components/navbar";
-import TopContent from "./components/TopContent";
+// import Navbar from "./components/navbar";
+// import TopContent from "./components/TopContent";
 import Footer from "./components/Footer";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
