@@ -1,178 +1,110 @@
-/* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-}
-
-/* Background styling */
-.background {
-  background-image: url('../../images/bg.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-/* Top section layout */
-
-/* Extra Content Section */
-.extra-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px 20px;
-  background-color: #E28B2C;
+.home-container {
+  font-family: "Poppins", sans-serif;
+  background: #0d0d0d;
   color: white;
 }
 
-.extra-text {
-  flex: 1;
-  padding-right: 20px;
-  max-width: 900px;
-  padding-left: 45px; /* Added space from left */
-
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+  background: linear-gradient(135deg, #1c1c1c, #333);
 }
 
-.extra-text h2 {
-  font-size: 28px;
+.hero-text h1 {
+  font-size: 3rem;
+  color: #facc15;
 }
 
-.extra-text p {
-  font-size: 18px;
-  line-height: 1.5;
+.hero-text p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
 }
 
-.extra-image {
-  flex: 1;
+.hero-button {
+  background: #facc15;
+  color: black;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hero-image {
+  max-width: 300px;
+}
+
+.section-divider {
+  margin: 2rem auto;
+  border: 1px solid #444;
+  width: 80%;
+}
+
+.slider-section {
+  padding: 2rem;
   text-align: center;
 }
 
-.extra-home-image {
+.movie-slider {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.movie-card {
+  background: #1f1f1f;
+  padding: 1rem;
+  border-radius: 16px;
+  min-width: 200px;
+}
+
+.movie-card img {
   width: 100%;
-  max-width: 350px;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
-/* Extra Button */
-.extra-content-button {
-  margin-top: 15px;
-  padding: 12px 50px;
+.why-choose-us {
+  padding: 2rem;
+  text-align: center;
+}
+
+.why-choose-us ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-choose-us li {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.register-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
+  background-color: #222;
+}
+
+.register-text {
+  flex: 1;
+}
+
+.register-button {
+  background: #facc15;
+  color: black;
+  padding: 0.8rem 2rem;
   border: none;
-background-color:#444;
-color: white;
-  font-size: 1rem;
+  border-radius: 12px;
   font-weight: bold;
-  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-  outline: none;
-  box-shadow: 0px 4px 10px rgba(255, 61, 0, 0.3);
+  margin-top: 1rem;
 }
 
-.extra-content-button:hover {
-  background: linear-gradient( #ff7b00);
-  transform: scale(1.05);
-  box-shadow: 0px 6px 15px rgba(255, 61, 0, 0.5);
-}
-
-
-/* Navbar */
-
-/* Footer */
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .top-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .text-section {
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .image-section {
-    width: 100%;
-  }
-
-  .home-image {
-    max-width: 300px;
-  }
-
-  .extra-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .extra-text {
-    padding: 0;
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .extra-home-image {
-    max-width: 250px;
-  }
-
-  .extra-content-button {
-    width: 70%;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-section {
-    max-width: 100%;
-  }
-
-  .extra-content-button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .text-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .text-section p {
-    font-size: 1rem;
-  }
-
-  .extra-text h2 {
-    font-size: 22px;
-  }
-
-  .extra-text p {
-    font-size: 16px;
-  }
-
-  .extra-content-button {
-    width: 90%;
-  }
+.register-image img {
+  max-width: 300px;
+  margin-left: 2rem;
 }

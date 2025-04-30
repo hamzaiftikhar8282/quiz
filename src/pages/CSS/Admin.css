@@ -11,7 +11,7 @@ body {
 
 /* Background styling */
 .background {
-  background-image: url('../../images/bg.jpg');
+  background-image: url('../../images/background.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -30,7 +30,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 50px 20px;
-  background-color: #E28B2C;
+  background-color: black;
   color: white;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./Admin_Navbar.css";
-import logo from "../../../images/logo.png";
+import logo from "../../../images/clogo.png";
 
 const AdminNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,18 +36,17 @@ const AdminNavbar = () => {
           Home
         </a>
         <a
-          href="/books_upload"
-          className={`admin-nav-link ${activePath === "/books_upload" ? "active" : ""}`}
+          href="/registered_ticket"
+          className={`admin-nav-link ${activePath === "/registered_ticket" ? "active" : ""}`}
         >
-          Upload Books
+          View Booked Tickets
         </a>
      
         <a
-          href="/Upload_Daily_Thoughts"
+          href="/add_movies"
           className={`admin-nav-link ${activePath === "/Upload_Daily_Thoughts" ? "active" : ""}`}
         >
-          Daily Thoughts
-        </a>
+Add Movie        </a>
         <a
           href="/edit_profile"
           className={`admin-nav-link ${activePath === "/edit_profile" ? "active" : ""}`}

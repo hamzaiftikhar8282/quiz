@@ -1,56 +1,95 @@
 import React from "react";
-import "../CSS/Home.css"; // Use the same CSS styling
+import { useNavigate } from "react-router-dom"; // import useNavigate
+import "../CSS/Home.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import bookJourney from "../../images/treebook.png"; // Import image
 import Navbar from "./components/navbar";
-// import TopContent from "./components/TopContent";
 import Footer from "./components/Footer";
+import cinemaBanner from "../../images/clogo.png";
+import movie1 from "../../images/movie1.jpg"; 
+import movie2 from "../../images/movie2.jpg";
+import movie3 from "../../images/movie3.jpg";
+
 const Home = () => {
+  const navigate = useNavigate(); // initialize navigate
+
+  const handleBrowseMovies = () => {
+    navigate("/browse-movies"); // route to browse movies page
+  };
+
+  const handleRegisterTicket = () => {
+    navigate("/register_ticket"); // route to register ticket page
+  };
+
   return (
     <div className="home-container">
-      <nav className="navbar">
-       <Navbar/>
-      </nav>
-{/* <TopContent/> */}
+      <Navbar />
 
-<div className="background">
-        <div className="top-content">
-          <div className="text-section">
-            <h2>Explore the World</h2>
-            <p>Rediscover yourself</p>
-            <p>Discover the magic of storytelling through timeless novels that explore  complex characters, immersive worlds, and captivating plots. Dive into  a world where imagination knows no bounds, and every page takes you on  an unforgettable journey.
-          <br></br>
-            <button type="submit" className="content-button">Explore Now</button>
+      {/* Hero Section */}
+      <div className="hero-section">
+        <div className="hero-text">
+          <h1>🎬 Welcome to CineBooking</h1>
+          <p>Your one-stop destination to book tickets, explore movies, and experience cinema like never before.</p>
+          <button className="hero-button" onClick={handleBrowseMovies}>
+            Browse Movies
+          </button>
+        </div>
+        <img src={cinemaBanner} alt="Cinema" className="hero-image" />
+      </div>
 
-            </p>
+      {/* Divider */}
+      <hr className="section-divider" />
+
+      {/* Slider Section */}
+      <div className="slider-section">
+        <h2>Now Showing</h2>
+        <div className="movie-slider">
+          <div className="movie-card">
+            <img src={movie1} alt="Movie 1" />
+            <p><strong>Edge of Tomorrow</strong><br />Showtimes: 3:00 PM, 6:00 PM, 9:00 PM</p>
           </div>
-
-          {/* <div className="image-section">
-          <img src={bookJourney} alt="Books" className="home-image" />
-          </div> */}
+          <div className="movie-card">
+            <img src={movie2} alt="Movie 2" />
+            <p><strong>Inception</strong><br />Showtimes: 2:30 PM, 5:30 PM, 8:30 PM</p>
+          </div>
+          <div className="movie-card">
+            <img src={movie3} alt="Movie 3" />
+            <p><strong>The Dark Knight</strong><br />Showtimes: 4:00 PM, 7:00 PM, 10:00 PM</p>
+          </div>
         </div>
       </div>
-      <div className="extra-content">
-        <div className="extra-text">
-          <h2>Start Your Reading Journey</h2>
-          <p>Join our platform to explore thousands of books, upload your own, and connect with like-minded readers. Reading opens the door to new possibilities! Whether you're an avid reader, a passionate writer, or someone looking for a community of book lovers, our platform has something for you.
 
-Discover a vast collection of novels, academic resources, and self-published works from authors worldwide. Upload your own books and share your knowledge, creativity, and stories with the world. Engage in discussions, write reviews, and build your personal library.
+      {/* Divider */}
+      <hr className="section-divider" />
 
-With an easy-to-use interface, seamless book uploads, and a growing community, our platform is designed to provide an immersive reading and sharing experience. Start your journey today and be part of a literary revolution!</p>
-<button type="submit" className="extra-content-button">Login</button>
-
-        </div>
-
-
-        <div className="extra-image">
-        <img src={bookJourney} alt="Reading Journey" className="extra-home-image" />
-        </div>
-
+      {/* Why Us Section */}
+      <div className="why-choose-us">
+        <h2>Why Book With CineBooking?</h2>
+        <ul>
+          <li><i className="fas fa-ticket-alt"></i> Quick & Easy Ticket Booking</li>
+          <li><i className="fas fa-film"></i> Latest Movies & Exclusive Shows</li>
+          <li><i className="fas fa-chair"></i> Real-Time Seat Selection</li>
+          <li><i className="fas fa-users"></i> Group Booking & Discounts</li>
+        </ul>
       </div>
 
-    
-      <Footer/>
+      {/* Divider */}
+      <hr className="section-divider" />
+
+      {/* Register Ticket CTA */}
+      <div className="register-section">
+        <div className="register-text">
+          <h2>Register Your Ticket Now</h2>
+          <p>Join thousands of movie lovers. Register your ticket now, choose your seats, and get ready for the ultimate cinema experience.</p>
+          <button className="register-button" onClick={handleRegisterTicket}>
+            Register Ticket
+          </button>
+        </div>
+        <div className="register-image">
+          <img src={cinemaBanner} alt="Book Ticket" />
+        </div>
+      </div>
+
+      <Footer />
     </div>
   );
 };

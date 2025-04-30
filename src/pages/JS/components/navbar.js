@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./Navbar.css";
-import logo from "../../../images/logo.png";
+import logo from "../../../images/clogo.png";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 
 const Navbar = () => {
@@ -52,24 +52,20 @@ const Navbar = () => {
           <a href="/Home" className={`nav-link ${activePath === "/Home" ? "active" : ""}`}>
             Home
           </a>
-          <a href="/User_Chapters" className={`nav-link ${activePath === "/User_Chapters" ? "active" : ""}`}>
-            Books
+          <a href="/register_ticket" className={`nav-link ${activePath === "/register_ticket" ? "active" : ""}`}>
+            Register Ticket
           </a>
-          <a href="/Daily_Thoughts" className={`nav-link ${activePath === "/Daily_Thoughts" ? "active" : ""}`}>
-            Daily Thoughts
+          <a href="/browser_moveis" className={`nav-link ${activePath === "/browser_moveis" ? "active" : ""}`}>
+            Browse Movies
           </a>
         </div>
 
         <div className="nav-actions">
-          <a href="/About_Author" className={`nav-link ${activePath === "/About_Author" ? "active" : ""}`}>
-            About Author
-          </a>
+  
           <a href="/Contact_Us" className={`nav-link ${activePath === "/Contact_Us" ? "active" : ""}`}>
             Contact Us
           </a>
-          <a href="/Privacy_Policy" className={`nav-link ${activePath === "/Privacy_Policy" ? "active" : ""}`}>
-            Privacy Policy
-          </a>
+  
           {isLoggedIn && (
             <button className="nav-link logout-btn" onClick={handleLogout}>
               Logout

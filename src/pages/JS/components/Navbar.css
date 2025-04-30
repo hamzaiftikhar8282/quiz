@@ -58,7 +58,7 @@
   
   /* Hover */
   .nav-link:hover {
-    background: #E28B2C;
+    background: tomato;
     color: white;
     border-radius: 6px;
     transform: scale(1.05);
@@ -66,7 +66,7 @@
   
   /* Active */
   .nav-link.active {
-    background: #E28B2C;
+    background: tomato;
     color: white;
     border-radius: 6px;
     font-weight: bold;

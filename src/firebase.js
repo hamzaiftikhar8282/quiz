@@ -1,23 +1,20 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore"; // Import Firestore
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC2fFKJOynFHfiYNSJ5D534qiLr9R30t2Y",
-  authDomain: "booksupload-3bf66.firebaseapp.com",
-  projectId: "booksupload-3bf66",
-  storageBucket: "booksupload-3bf66.appspot.com",
-  messagingSenderId: "989442545193",
-  appId: "1:989442545193:web:bcb1f7f9b863c882db6e38",
-  measurementId: "G-GN9W1GP2MY"
+  apiKey: "AIzaSyCIkcmQtuFJfejfy_xEl5gp3wPQyNiUDF8",
+  authDomain: "cenimabooking-9efc2.firebaseapp.com",
+  projectId: "cenimabooking-9efc2",
+  storageBucket: "cenimabooking-9efc2.appspot.com", // Fix: use appspot.com not firebasestorage.app
+  messagingSenderId: "856290511341",
+  appId: "1:856290511341:web:d387189784b4d32a9cbfe4",
+  measurementId: "G-FSEHQJRZQZ",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-// Initialize Firestore
 const db = getFirestore(app);
-// const currentUserId = auth.currentUser?.uid;
 
-export { auth, db }; // Export Firestore instance
+export { auth, db };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../CSS/Auth.css";
 import { Link, useNavigate } from "react-router-dom";
-import signupImage from "../../images/logo.png";
+import signupImage from "../../images/clogo.png";
 import { auth, db } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";

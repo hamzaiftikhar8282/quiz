@@ -11,7 +11,7 @@ body {
 
 /* Background styling */
 .background {
-  background-image: url('../../images/bg.jpg');
+  background-image: url('../../images/background.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;

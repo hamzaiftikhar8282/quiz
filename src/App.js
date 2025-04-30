@@ -5,17 +5,17 @@ import './App.css';
 import Login from './pages/JS/Login';
 import SignUp from './pages/JS/SignUp';
 import Home from './pages/JS/Home';
-import Author from './pages/JS/About_Author';
 import Contact from './pages/JS/Contact_Us';
-import Chapter from './pages/JS/User_Chapters';
-import ViewChapter from './pages/JS/Daily_Thoughts';
+
 import Privacy from './pages/JS/Privacy_Policy';
 import AdminNavbar from './pages/JS/components/Admin_navbar';
 import AdminHome from './pages/JS/Admin';
 import ForgetPassword from './pages/JS/forget_password';
-import BookUpload from './pages/JS/book_upload';
 import EditProfile from './pages/JS/edit_profile';
-import UploadDailyThoughts from './pages/JS/Upload_Daily_Thoughts';
+import BrowseMovies from './pages/JS/browser_moveis';
+import RegisterTicket from './pages/JS/register_ticket';
+import AdminTicketPage from './pages/JS/registered_ticket';
+import AddMovie from './pages/JS/add_movies';
 function App() {
   return (
     <Router>
@@ -28,13 +28,21 @@ function App() {
             {<Route path="/SignUp" element={<SignUp />} />
             
             }
-             {<Route path="/Upload_Daily_Thoughts" element={<UploadDailyThoughts />} />
+       
+              {<Route path="/browser_moveis" element={<BrowseMovies />} />
+            
+          }
+            {<Route path="/add_movies" element={<AddMovie />} />
             
           }
              {<Route path="/edit_profile" element={<EditProfile />} />
             
           }
-          {<Route path="/User_Chapter" element={<Chapter />} />
+     
+            {<Route path="/registered_ticket" element={<AdminTicketPage />} />
+            
+          }
+            {<Route path="/register_ticket" element={<RegisterTicket />} />
             
           }
             {<Route path="/Login" element={<Login />} />
@@ -48,11 +56,7 @@ function App() {
             
 
           }
-              {<Route path="/books_upload" element={<BookUpload />} />
             
-            
-
-          }
 
 {<Route path="/forget_password" element={<ForgetPassword />} />
             
@@ -67,11 +71,8 @@ function App() {
             // <Route path="/feed_page" element={<Feedpage />} /> 
             
             }
-                {<Route path="/About_Author" element={<Author />} />
+                
             
-            // <Route path="/feed_page" element={<Feedpage />} /> 
-            
-            }
                 {<Route path="/Contact_Us" element={<Contact />} />
             
             // <Route path="/feed_page" element={<Feedpage />} /> 
@@ -79,17 +80,7 @@ function App() {
             }
           
                 
-                
-                {<Route path="/User_Chapters" element={<Chapter />} />
-            
-            // <Route path="/feed_page" element={<Feedpage />} /> 
-            
-            }
-                 {<Route path="/Daily_Thoughts" element={<ViewChapter />} />
-            
-            // <Route path="/feed_page" element={<Feedpage />} /> 
-            
-            }
+               
           
                   {<Route path="/Privacy_Policy" element={<Privacy />} />
             

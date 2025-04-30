@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-image: url('../../images/bg.jpg');
+  background-image: url('../../images/background.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -80,7 +80,7 @@
   width: 100%;
   padding: 0.7rem;
   border: none;
-  background-color: #E28B2C;
+  background-color:tomato;
   border-radius: 8px;
   cursor: pointer;
   color: white;
@@ -89,8 +89,8 @@
 }
 
 .auth-button:hover {
-  background: #d37723;
-  transform: scale(1.03);
+  background:#ff7070;
+    transform: scale(1.03);
 }
 
 /* Error Text */

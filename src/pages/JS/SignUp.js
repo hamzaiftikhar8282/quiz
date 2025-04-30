@@ -4,7 +4,7 @@ import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import "../CSS/Auth.css";
-import signupImage from "../../images/logo.png";
+import signupImage from "../../images/clogo.png";
 
 const SignUp = () => {
   const [name, setName] = useState("");

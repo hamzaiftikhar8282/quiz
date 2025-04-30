@@ -1,15 +1,16 @@
 .admin-navbar {
-    background: #222;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  background: rgba(34, 34, 34, 0.9);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
   }
   
   .admin-logo {
@@ -41,14 +42,14 @@
   }
   
   .admin-nav-link:hover {
-    background: #E28B2C;
+    background: tomato;
     color: white;
     border-radius: 6px;
     transform: scale(1.05);
   }
   
   .admin-nav-link.active {
-    background: #E28B2C;
+    background: tomato;
     color: white;
     border-radius: 6px;
     font-weight: bold;
