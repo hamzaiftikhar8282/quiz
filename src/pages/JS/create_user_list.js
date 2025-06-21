@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import AdminNavbar from "./components/Admin_navbar";
-import Footer from "./components/Footer";
+
 import "../CSS/create_user_list.css";
 
 const UsersList = () => {

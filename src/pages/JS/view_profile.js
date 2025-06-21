@@ -3,7 +3,6 @@ import { auth, db } from "../../firebase";
 import "../CSS/view_profile.css";
 import {
   doc,
-  getDoc,
   collection,
   query,
   where,

@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav className="navbar">
       {/* Logo */}
       <a href="/" className="logo">
-        <img src={logo}  className="logo-image" />
+        <img src={logo}  alt="bloodbridge" className="logo-image" />
       </a>
 
       {/* Menu Toggle for small devices */}
