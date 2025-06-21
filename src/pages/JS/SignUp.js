@@ -11,7 +11,6 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -49,7 +48,6 @@ const SignUp = () => {
         uid: user.uid,
         name,
         email,
-        isAdmin,
         createdAt: new Date(),
       });
 
@@ -91,19 +89,8 @@ const SignUp = () => {
             />
           </div>
 
-          {/* Admin checkbox */}
-          {/* <div className="auth-field checkbox-field">
-            <label>
-              <input
-                type="checkbox"
-                checked={isAdmin}
-                onChange={(e) => setIsAdmin(e.target.checked)}
-              />
-              Register as Admin
-            </label>
-          </div> */}
 
-          {isAdmin && <p className="admin-status">Admin access will be granted.</p>}
+
           {error && <p className="error-text">{error}</p>}
 
           <button type="submit" className="auth-button">Sign Up</button>
