@@ -1,7 +1,7 @@
 /* Navbar styles */
 .navbar {
-    background: rgba(34, 34, 34, 0.9);
-    color: white;
+  background: linear-gradient(135deg, #7b0000, #a40000);
+  color: white;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;

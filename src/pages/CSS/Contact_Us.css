@@ -13,7 +13,7 @@ body {
 
 /* Background Styling */
 .background {
-  background-image: url('../../images/bg.jpg');
+  background-image: url('../../images/blood.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -75,15 +75,11 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #E28B2C;
-  box-shadow: 0px 0px 8px rgba(226, 139, 44, 0.5);
-}
+
 
 /* Submit Button */
 .contact-button {
-  background: linear-gradient(135deg, #E28B2C, #D35400);
+  background: linear-gradient(135deg, #7b0000, #a40000);
   color: white;
   font-size: 1.1rem;
   font-weight: 600;
@@ -96,7 +92,7 @@ body {
 }
 
 .contact-button:hover {
-  background: linear-gradient(135deg, #D35400, #E28B2C);
+  background: linear-gradient(135deg, #7b0000, #a40000);
   transform: translateY(-2px);
   box-shadow: 0px 6px 14px rgba(211, 84, 0, 0.4);
 }

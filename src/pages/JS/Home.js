@@ -1,91 +1,104 @@
-import React from "react";
-import { useNavigate } from "react-router-dom"; // import useNavigate
-import "../CSS/Home.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import React, { useEffect } from "react";
+import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { db } from "../../firebase";
+import { getAuth } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
 import Navbar from "./components/navbar";
 import Footer from "./components/Footer";
-import cinemaBanner from "../../images/clogo.png";
-import movie1 from "../../images/movie1.jpg"; 
-import movie2 from "../../images/movie2.jpg";
-import movie3 from "../../images/movie3.jpg";
+import bloodbox from "../../images/bloodbox.jpg";
+
+import "../CSS/Home.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Home = () => {
-  const navigate = useNavigate(); // initialize navigate
+  const navigate = useNavigate();
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const userId = user ? user.uid : null;
 
-  const handleBrowseMovies = () => {
-    navigate("/browse-movies"); // route to browse movies page
-  };
+  useEffect(() => {
+    if (!userId) return;
 
-  const handleRegisterTicket = () => {
-    navigate("/register_ticket"); // route to register ticket page
-  };
+    const q = query(collection(db, "donationRequests"), where("toUserId", "==", userId));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === "added") {
+          const newRequest = change.doc.data();
+          alert(`New donation request from: ${newRequest.fromUserName || "Someone"}`);
+        }
+      });
+    });
+
+    return () => unsubscribe();
+  }, [userId]);
 
   return (
     <div className="home-container">
-      <Navbar />
+      <nav className="navbar">
+        <Navbar />
+      </nav>
 
       {/* Hero Section */}
-      <div className="hero-section">
-        <div className="hero-text">
-          <h1>🎬 Welcome to CineBooking</h1>
-          <p>Your one-stop destination to book tickets, explore movies, and experience cinema like never before.</p>
-          <button className="hero-button" onClick={handleBrowseMovies}>
-            Browse Movies
+      <div className="background" style={{ backgroundColor: "#2b0000", color: "#fff" }}>
+        <div className="top-content">
+          <div className="text-section">
+            <h2>BloodBridge Connect, Donate, Save Lives</h2>
+            <p>
+              Welcome to BloodBridge—your trusted platform to connect blood donors with recipients. Discover the power of compassion and community as we bridge the gap between those who want to help and those in need.
+            </p>
+            <p>
+              Join our platform to browse local donors, register your blood request or donation, and contribute to a life-saving network powered by people like you.
+            </p>
+            <button type="submit" className="content-button">Explore Now</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Extra Content */}
+      <div className="extra-content">
+        <div className="extra-text">
+          <h2>How BloodBridge Works</h2>
+          <p>
+            BloodBridge connects people needing blood with those willing to donate in real time. Our platform provides an easy-to-use interface where users can:
+            <ul>
+              <li>💉 Register as donors or recipients</li>
+              <li>📍 Search for donors nearby</li>
+              <li>🔔 Get alerts when a match is found</li>
+              <li>🔒 Stay secure with verified users and protected data</li>
+            </ul>
+            Start saving lives with just a few clicks.
+          </p>
+          <button
+            type="button"
+            className="extra-content-button"
+            onClick={() => navigate("/login")}
+          >
+            Login
           </button>
         </div>
-        <img src={cinemaBanner} alt="Cinema" className="hero-image" />
-      </div>
 
-      {/* Divider */}
-      <hr className="section-divider" />
-
-      {/* Slider Section */}
-      <div className="slider-section">
-        <h2>Now Showing</h2>
-        <div className="movie-slider">
-          <div className="movie-card">
-            <img src={movie1} alt="Movie 1" />
-            <p><strong>Edge of Tomorrow</strong><br />Showtimes: 3:00 PM, 6:00 PM, 9:00 PM</p>
-          </div>
-          <div className="movie-card">
-            <img src={movie2} alt="Movie 2" />
-            <p><strong>Inception</strong><br />Showtimes: 2:30 PM, 5:30 PM, 8:30 PM</p>
-          </div>
-          <div className="movie-card">
-            <img src={movie3} alt="Movie 3" />
-            <p><strong>The Dark Knight</strong><br />Showtimes: 4:00 PM, 7:00 PM, 10:00 PM</p>
-          </div>
+        <div className="extra-image">
+          <img src={bloodbox} alt="Reading Journey" className="extra-home-image" />
         </div>
       </div>
 
-      {/* Divider */}
-      <hr className="section-divider" />
-
-      {/* Why Us Section */}
-      <div className="why-choose-us">
-        <h2>Why Book With CineBooking?</h2>
-        <ul>
-          <li><i className="fas fa-ticket-alt"></i> Quick & Easy Ticket Booking</li>
-          <li><i className="fas fa-film"></i> Latest Movies & Exclusive Shows</li>
-          <li><i className="fas fa-chair"></i> Real-Time Seat Selection</li>
-          <li><i className="fas fa-users"></i> Group Booking & Discounts</li>
-        </ul>
-      </div>
-
-      {/* Divider */}
-      <hr className="section-divider" />
-
-      {/* Register Ticket CTA */}
-      <div className="register-section">
-        <div className="register-text">
-          <h2>Register Your Ticket Now</h2>
-          <p>Join thousands of movie lovers. Register your ticket now, choose your seats, and get ready for the ultimate cinema experience.</p>
-          <button className="register-button" onClick={handleRegisterTicket}>
-            Register Ticket
-          </button>
-        </div>
-        <div className="register-image">
-          <img src={cinemaBanner} alt="Book Ticket" />
+      {/* Team Section */}
+      <div className="team-section" style={{ backgroundColor: "#191919", color: "#edf2f4", textAlign: "center", padding: "2rem" }}>
+        <h2 style={{ color: "#ffffff" }}>Meet Our Team</h2>
+        <div className="team-slider" style={{ display: "flex", justifyContent: "center", gap: "2rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
+          <div className="team-card" style={{ background: "#292929", padding: "1rem", borderRadius: "16px", width: "200px" }}>
+            <strong style={{ color: "#ffffff" }}>Saher Akbar</strong>
+            <p style={{ color: "#ffffff" }}>Medical Advisor</p>
+          </div>
+          <div className="team-card" style={{ background: "#292929", padding: "1rem", borderRadius: "16px", width: "200px" }}>
+            <strong style={{ color: "#ffffff" }}>Iqra Khokhar</strong>
+            <p style={{ color: "#ffffff" }}>Lead Developer</p>
+          </div>
+          <div className="team-card" style={{ background: "#292929", padding: "1rem", borderRadius: "16px", width: "200px" }}>
+            <strong style={{ color: "#ffffff" }}>Komal Parveen</strong>
+            <p style={{ color: "#ffffff" }}>Operations Manager</p>
+          </div>
         </div>
       </div>
 

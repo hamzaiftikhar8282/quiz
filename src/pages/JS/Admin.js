@@ -1,58 +1,76 @@
-import React from "react";
-import "../CSS/Admin.css"; 
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import Footer from "./components/Footer";
+import React, { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
+import { useNavigate } from "react-router-dom";
+import "../CSS/Admin.css";
 import AdminNavbar from "./components/Admin_navbar";
-import cinemaBanner from "../../images/clogo.png";
+import Footer from "./components/Footer";
 
 const AdminHome = () => {
+  const [donorsCount, setDonorsCount] = useState(0);
+  const [usersCount, setUsersCount] = useState(0);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const donorsSnapshot = await getDocs(collection(db, "donors"));
+        setDonorsCount(donorsSnapshot.size);
+
+        const usersSnapshot = await getDocs(collection(db, "users"));
+        setUsersCount(usersSnapshot.size);
+      } catch (error) {
+        console.error("Error fetching counts:", error);
+      }
+    };
+
+    fetchCounts();
+  }, []);
+
   return (
     <div className="home-container">
       <nav className="navbar">
         <AdminNavbar />
       </nav>
 
-      {/* Hero Section */}
       <div className="background">
         <div className="top-content">
           <div className="text-section">
-            <h2>🎬 Welcome to CineBooking Admin Panel</h2>
-            <p>Manage movies, monitor bookings, and control your cinema world — all from one dashboard.</p>
+            <h2>Welcome to the Admin Panel</h2>
+            <p>Manage your platform efficiently from this centralized dashboard.</p>
             <p>
-              As an administrator, you have the power to add new movies, update showtimes, manage registered tickets, and keep your cinema community engaged.
-              <br />
-              <button type="button" className="content-button">
-                Manage Movies
-              </button>
+              As an administrator, you can add new entries, update details, manage user registrations, and monitor activities.
             </p>
           </div>
-
-          {/* Optional Cinema Image */}
-          {/* <div className="image-section">
-            <img src={cinemaBanner} alt="Admin Cinema" className="home-image" />
-          </div> */}
         </div>
       </div>
 
-      {/* Features Section */}
-      <div className="extra-content">
-        <div className="extra-text">
-          <p>
-            Our admin panel is designed to provide a seamless experience for cinema management:
-            <br /><br />
-            🎟️ Post and update the latest movies easily.<br />
-            📅 Schedule and manage movie showtimes.<br />
-            🧾 View all user ticket registrations in real-time.<br />
-            🛡️ Secure access and control over your cinema platform.<br /><br />
-            Start managing your cinema empire today with just a few clicks!
-          </p>
-          <button type="button" className="extra-content-button">
-            View Bookings
-          </button>
-        </div>
+      <div className="dashboard-stats">
+        <h3>Admin Dashboard Overview</h3>
+        <div className="stats-cards">
+          <div className="stat-card">
+            <i className="fas fa-hand-holding-heart fa-2x"></i>
+            <h4>Total Donors</h4>
+            <p>{donorsCount}</p>
+            <button
+              className="view-button"
+              onClick={() => navigate("/create_donor_list")}
+            >
+              View Donors
+            </button>
+          </div>
 
-        <div className="extra-image">
-          <img src={cinemaBanner} alt="Cinema Admin Panel" className="extra-home-image" />
+          <div className="stat-card">
+            <i className="fas fa-users fa-2x"></i>
+            <h4>Total Users</h4>
+            <p>{usersCount}</p>
+            <button
+              className="view-button"
+              onClick={() => navigate("/donor_managment")}
+            >
+              View Users
+            </button>
+          </div>
         </div>
       </div>
 

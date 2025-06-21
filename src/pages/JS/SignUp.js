@@ -4,7 +4,7 @@ import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import "../CSS/Auth.css";
-import signupImage from "../../images/clogo.png";
+import signupImage from "../../images/bloodlogo.png";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -54,7 +54,7 @@ const SignUp = () => {
       });
 
       setError("");
-      navigate("/");
+      navigate("/Login");
     } catch (err) {
       setError(err.message);
     }
@@ -70,14 +70,17 @@ const SignUp = () => {
             <label>Name</label>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
           </div>
+
           <div className="auth-field">
             <label>Email</label>
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
+
           <div className="auth-field">
             <label>Password</label>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </div>
+
           <div className="auth-field">
             <label>Confirm Password</label>
             <input
@@ -88,20 +91,19 @@ const SignUp = () => {
             />
           </div>
 
-          {/* Checkbox field */}
+          {/* Admin checkbox */}
           <div className="auth-field checkbox-field">
-            <input
-              type="checkbox"
-              id="adminCheckbox"
-              checked={isAdmin}
-              onChange={(e) => setIsAdmin(e.target.checked)}
-            />
-            <label htmlFor="adminCheckbox" className="checkbox-label">
+            <label>
+              <input
+                type="checkbox"
+                checked={isAdmin}
+                onChange={(e) => setIsAdmin(e.target.checked)}
+              />
               Register as Admin
             </label>
           </div>
 
-          {isAdmin && <p className="admin-status">This is admin: true</p>}
+          {isAdmin && <p className="admin-status">Admin access will be granted.</p>}
           {error && <p className="error-text">{error}</p>}
 
           <button type="submit" className="auth-button">Sign Up</button>

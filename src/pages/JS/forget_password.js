@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../../firebase"; // Ensure correct import
 import { sendPasswordResetEmail } from "firebase/auth";
 import "../CSS/Auth.css";
-import forgotPasswordImage from "../../images/logo.png"; 
+import forgotPasswordImage from "../../images/bloodlogo.png"; 
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState("");

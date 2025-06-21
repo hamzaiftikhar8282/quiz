@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./Navbar.css";
-import logo from "../../../images/clogo.png";
+import logo from "../../../images/bloodlogo.png";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 
 const Navbar = () => {
@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav className="navbar">
       {/* Logo */}
       <a href="/" className="logo">
-        <img src={logo} alt="World of emanNasir" className="logo-image" />
+        <img src={logo}  className="logo-image" />
       </a>
 
       {/* Menu Toggle for small devices */}
@@ -52,12 +52,7 @@ const Navbar = () => {
           <a href="/Home" className={`nav-link ${activePath === "/Home" ? "active" : ""}`}>
             Home
           </a>
-          <a href="/register_ticket" className={`nav-link ${activePath === "/register_ticket" ? "active" : ""}`}>
-            Register Ticket
-          </a>
-          <a href="/browser_moveis" className={`nav-link ${activePath === "/browser_moveis" ? "active" : ""}`}>
-            Browse Movies
-          </a>
+    
         </div>
 
         <div className="nav-actions">
@@ -66,6 +61,24 @@ const Navbar = () => {
             Contact Us
           </a>
   
+  
+          <a href="/About_us" className={`nav-link ${activePath === "/About_us" ? "active" : ""}`}>
+              About Us
+          </a>
+          <a href="/view_profile" className={`nav-link ${activePath === "/view_profile" ? "active" : ""}`}>
+              Dashboard
+          </a>
+          
+       
+
+          <a href="/register_donor" className={`nav-link ${activePath === "/register_donor" ? "active" : ""}`}>
+            Become Donor
+          </a>
+
+          <a href="/see_donor" className={`nav-link ${activePath === "/see_donor" ? "active" : ""}`}>
+              recipients
+          </a>
+    
           {isLoggedIn && (
             <button className="nav-link logout-btn" onClick={handleLogout}>
               Logout

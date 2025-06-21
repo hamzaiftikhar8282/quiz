@@ -6,6 +6,7 @@ import Login from './pages/JS/Login';
 import SignUp from './pages/JS/SignUp';
 import Home from './pages/JS/Home';
 import Contact from './pages/JS/Contact_Us';
+import 'leaflet/dist/leaflet.css';
 
 import Privacy from './pages/JS/Privacy_Policy';
 import AdminNavbar from './pages/JS/components/Admin_navbar';
@@ -16,6 +17,15 @@ import BrowseMovies from './pages/JS/browser_moveis';
 import RegisterTicket from './pages/JS/register_ticket';
 import AdminTicketPage from './pages/JS/registered_ticket';
 import AddMovie from './pages/JS/add_movies';
+import DonorManagement from './pages/JS/donot_managment';
+import DonorPage from './pages/JS/donor_page';
+import BecomeDonor from './pages/JS/register_donor';
+import DonorList from './pages/JS/see_donor';
+import AboutUs from './pages/JS/About_us';
+import DonorsList from './pages/JS/create_donor_list';
+import UsersList from './pages/JS/create_user_list';
+import Notifications from './pages/JS/donor_recived_notification';
+import ViewProfile from './pages/JS/view_profile';
 function App() {
   return (
     <Router>
@@ -28,7 +38,44 @@ function App() {
             {<Route path="/SignUp" element={<SignUp />} />
             
             }
-       
+
+{<Route path="/donor_recived_notification" element={<Notifications />} />
+            
+            }
+
+
+{<Route path="/view_profile" element={<ViewProfile />} />
+            
+            }
+
+
+{<Route path="/create_user_list" element={<UsersList />} />
+            
+          }
+            {<Route path="/create_donor_list" element={<DonorsList />} />
+            
+          }
+
+
+       {<Route path="/register_donor" element={<BecomeDonor />} />
+            
+          }
+          {<Route path="/donot_managment" element={<DonorManagement />} />
+            
+          }
+
+{<Route path="/About_us" element={<AboutUs />} />
+            
+          }
+
+             {<Route path="/see_donor" element={<DonorList />} />
+            
+          }
+
+
+{<Route path="/donor_page" element={<DonorPage />} />
+            
+          }
               {<Route path="/browser_moveis" element={<BrowseMovies />} />
             
           }
