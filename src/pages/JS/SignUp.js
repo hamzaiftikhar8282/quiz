@@ -92,7 +92,7 @@ const SignUp = () => {
           </div>
 
           {/* Admin checkbox */}
-          <div className="auth-field checkbox-field">
+          {/* <div className="auth-field checkbox-field">
             <label>
               <input
                 type="checkbox"
@@ -101,7 +101,7 @@ const SignUp = () => {
               />
               Register as Admin
             </label>
-          </div>
+          </div> */}
 
           {isAdmin && <p className="admin-status">Admin access will be granted.</p>}
           {error && <p className="error-text">{error}</p>}
