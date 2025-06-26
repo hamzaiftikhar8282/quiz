@@ -1,19 +1,26 @@
+// firebase.js
+
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";       // <-- Add this import
-import { getFirestore } from "firebase/firestore"; // <-- And this import
+import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBw2-gi0FA6alvK_xVAFeVaZQpCqxKqDXE",
-  authDomain: "bloodbridge-ee773.firebaseapp.com",
-  projectId: "bloodbridge-ee773",
-  storageBucket: "bloodbridge-ee773.firebasestorage.app",
-  messagingSenderId: "517167273903",
-  appId: "1:517167273903:web:53adcbada985f2dca9c15a",
-  measurementId: "G-5VEEKDEX3F"
+  apiKey: "AIzaSyDAg09Wr07J2IU9_6klRcRCYikxQWU-hBk",
+  authDomain: "cake-6c44d.firebaseapp.com",
+  projectId: "cake-6c44d",
+  storageBucket: "cake-6c44d.firebasestorage.app",
+  messagingSenderId: "74272393983",
+  appId: "1:74272393983:web:71c86ea16b035d59a71aca",
+  measurementId: "G-BNZHK733GJ"
 };
 
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-export { auth, db };
+// ✅ Export needed instances
+export { auth, db, analytics };

@@ -1,60 +1,57 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, db } from "../../firebase";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
-import "../CSS/Auth.css";
-import signupImage from "../../images/bloodlogo.png";
+import axios from "axios";
+import "../css/authentication.css";
+import signupImage from "../../images/petlogo.jpg";
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   const validateForm = () => {
-    if (!name.trim()) {
-      setError("Name is required!");
-      return false;
-    }
-    if (!email.includes("@") || !email.includes(".")) {
-      setError("Enter a valid email address!");
-      return false;
-    }
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters!");
-      return false;
-    }
-    if (password !== confirmPassword) {
-      setError("Passwords do not match!");
-      return false;
-    }
+    const { name, email, password, confirmPassword } = formData;
+    if (!name.trim()) return setError("Name is required!");
+    if (!email.includes("@") || !email.includes(".")) return setError("Enter a valid email address!");
+    if (password.length < 6) return setError("Password must be at least 6 characters!");
+    if (password !== confirmPassword) return setError("Passwords do not match!");
     return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     if (!validateForm()) return;
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-
-      await updateProfile(user, { displayName: name });
-
-      await setDoc(doc(db, "users", user.uid), {
-        uid: user.uid,
-        name,
-        email,
-        createdAt: new Date(),
+      const res = await axios.post("http://localhost:5000/api/signup", {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
       });
 
-      setError("");
-      navigate("/Login");
+      alert(res.data.message);
+      navigate("/login");
     } catch (err) {
-      setError(err.message);
+      if (err.response) {
+        setError(err.response.data.message);
+      } else {
+        setError("Signup failed! Please try again.");
+      }
     }
   };
 
@@ -66,30 +63,47 @@ const SignUp = () => {
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="auth-field">
             <label>Name</label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className="auth-field">
             <label>Email</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className="auth-field">
             <label>Password</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className="auth-field">
             <label>Confirm Password</label>
             <input
               type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
               required
             />
           </div>
-
-
 
           {error && <p className="error-text">{error}</p>}
 

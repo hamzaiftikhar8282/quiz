@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import "../CSS/Auth.css";
-import { Link, useNavigate } from "react-router-dom";
-import signupImage from "../../images/bloodlogo.png";
-import { auth, db } from "../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { Link, useNavigate } from "react-router-dom"; // ✅ Added this
+import "../css/authentication.css";
+import signupImage from "../../images/petlogo.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,34 +9,23 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
 
-    try {
-      // Sign in with Firebase Auth
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+    // Dummy credentials (replace with backend logic if needed)
+    const adminEmail = "admin@bloodbridge.com";
+    const adminPassword = "admin123";
 
-      // Check Firestore for user role
-      const userDocRef = doc(db, "users", user.uid);
-      const userSnap = await getDoc(userDocRef);
+    const userEmail = "user@bloodbridge.com";
+    const userPassword = "user123";
 
-      if (userSnap.exists()) {
-        const userData = userSnap.data();
-
-        // Redirect based on admin flag
-        if (userData.isAdmin) {
-          navigate("/Admin");
-        } else {
-          navigate("/Home");
-        }
-      } else {
-        setError("User record not found in database.");
-      }
-    } catch (err) {
-      console.error("Login error:", err);
-      setError(err.message);
+    if (email === adminEmail && password === adminPassword) {
+      navigate("/Admin");
+    } else if (email === userEmail && password === userPassword) {
+      navigate("/Home");
+    } else {
+      setError("Invalid email or password.");
     }
   };
 

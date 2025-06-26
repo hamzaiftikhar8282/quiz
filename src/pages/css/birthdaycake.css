@@ -1,0 +1,114 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff8f0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #d2691e;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #d2691e;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #fff5e6, #ffe6cc);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.hero p {
+  color: #555;
+  font-size: 1.2rem;
+}
+
+/* Cakes Section */
+.cakes-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 1rem;
+}
+
+.cake-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 20px;
+  width: 280px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.cake-card:hover {
+  transform: translateY(-5px);
+}
+
+.cake-card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.cake-card h3 {
+  color: #a0522d;
+}
+
+/* Footer */
+.footer {
+  background-color: #fff;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .cake-card {
+    width: 90%;
+  }
+}
