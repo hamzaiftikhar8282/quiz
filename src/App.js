@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 
-import HomePage from './pages/js/homepage';
+import HomePage from './pages/js/HomePage';
 import Quiz from './pages/js/quiz';
 import AdminMCQEntry from './pages/js/admin';
 import Login from './pages/js/login';
