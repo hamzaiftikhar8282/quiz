@@ -1,30 +1,31 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // ✅ Added this
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import "../css/authentication.css";
-import signupImage from "../../images/petlogo.jpg";
+import signupImage from "../../images/logosch.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const auth = getAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
-    // Dummy credentials (replace with backend logic if needed)
-    const adminEmail = "admin@bloodbridge.com";
-    const adminPassword = "admin123";
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-    const userEmail = "user@bloodbridge.com";
-    const userPassword = "user123";
-
-    if (email === adminEmail && password === adminPassword) {
-      navigate("/Admin");
-    } else if (email === userEmail && password === userPassword) {
-      navigate("/Home");
-    } else {
+      // Redirect only if it's the correct admin user
+      if (user.email === "admin@gmail.com") {
+        navigate("/Admin");
+      } else {
+        setError("You are not authorized to access the admin panel.");
+      }
+    } catch (error) {
       setError("Invalid email or password.");
     }
   };
@@ -63,7 +64,7 @@ const Login = () => {
           <Link to="/forget_password" className="auth-link">Forgot Password?</Link>
         </p>
         <p className="auth-text">
-          Don't have an account? <Link to="/SignUp" className="auth-link">Sign Up</Link>
+          Don’t have an account? <Link to="/SignUp" className="auth-link">Sign Up</Link>
         </p>
       </div>
     </div>

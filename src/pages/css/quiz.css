@@ -1,0 +1,125 @@
+.quizpage {
+  background: linear-gradient(135deg, #0f66d2, #1cd7a7);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 1rem;
+}
+
+.quiz-container {
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
+  width: 100%;
+  max-width: 480px;
+  margin: 1rem auto;
+  padding: 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 1rem auto;
+  width: 100px;
+  height: auto;
+}
+
+.instructions {
+  background-color: #f0f8ff;
+  padding: 0.8rem;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  color: #333;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.question-title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #0f66d2;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+.option-btn {
+  background: #1cd7a7;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.option-btn:hover:not(.selected) {
+  background: #15b995;
+}
+
+.option-btn.selected {
+  background-color: #0f66d2;
+  color: white;
+  border: 2px solid #0f66d2;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  gap: 0.5rem;
+}
+
+.navigation-buttons .option-btn {
+  flex: 1;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+}
+
+/* Back Button */
+.navigation-buttons .option-btn:first-child {
+  background-color: #1cd7a7;
+}
+
+/* Next/Submit Button */
+.navigation-buttons .option-btn:last-child {
+  background-color: #0f66d2;
+}
+
+/* Hover effects */
+
+.progress {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .quiz-container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .question-title {
+    font-size: 1rem;
+  }
+
+  .option-btn,
+  .navigation-buttons .option-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  .instructions {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,89 @@
+.homepage {
+  background: linear-gradient(135deg, #0f66d2, #1cd7a7);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.logo {
+  width: 90px;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.6rem;
+  color: #0f66d2;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #1cd7a7;
+  margin-bottom: 1.2rem;
+}
+
+.rules {
+  background: #e9f6f2;
+  padding: 1rem 1.5rem;
+  border-left: 5px solid #1cd7a7;
+  text-align: left;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.rules h3 {
+  color: #007b83;
+  margin-bottom: 0.8rem;
+}
+
+.rules li {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.name-input {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.start-btn {
+  background-color: #0f66d2;
+  color: white;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+  max-width: 100%;
+}
+
+.start-btn:hover:enabled {
+  background-color: #1cd7a7;
+}
+
+.start-btn:disabled {
+  background-color: #0d54af;
+  cursor: not-allowed;
+}

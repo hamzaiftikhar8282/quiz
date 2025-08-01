@@ -1,40 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import Navbar from './pages/js/navbar';
+import { useState } from 'react';
 
 import HomePage from './pages/js/homepage';
-import BirthdayCakes from './pages/js/birthdaycake';
-import ShopContact from './pages/js/contact';
-import CustomizeCake from './pages/js/register';
+import Quiz from './pages/js/quiz';
+import AdminMCQEntry from './pages/js/admin';
+import Login from './pages/js/login';
+import Result from './pages/js/result';
 function App() {
+  const [name, setName] = useState('');
+  const [score, setScore] = useState(null);
+const [userId, setUserId] = useState(""); // ← New
 
   return (
     <div className="App">
-       <Router>
+      <Router>
+        <Routes>
 
-        
-        
-      <Routes>
-                  <Route path="/" element={<HomePage />} />                 {/* ✅ Home (first page) */}
+ <Route path="/" element={<HomePage setName={setName} setUserId={setUserId} />} />
+<Route path="/quiz" element={<Quiz setScore={setScore} userId={userId} name={name} />} />
 
-           {<Route path="/birthdaycake" element={<BirthdayCakes />} />
-            
-          }
 
-           {<Route path="/register" element={<CustomizeCake />} />
-            
-          }
-           {<Route path="/contact" element={<ShopContact />} />
-           
-            
-          }
-           {<Route path="/Footer" element={<Navbar />} />
-            
-          }
-                </Routes>
-    </Router>
+
+                    <Route path="/login" element={<Login />} />
+
+          <Route path="/admin" element={<AdminMCQEntry />} />
+                    <Route path="/result" element={<Result />} />
+
+
+                    <Route path="/login" element={<Login />} />
+
+
+        </Routes>
+      </Router>
     </div>
   );
 }

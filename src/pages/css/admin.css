@@ -1,0 +1,110 @@
+/* Full Page Background */
+.adminpage {
+  background: linear-gradient(135deg, #0f66d2, #1cd7a7);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Main Container */
+.admin-container {
+  background: #ffffff;
+  max-width: 700px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.admin-title {
+  font-size: 1.5rem;
+  color: #0f66d2;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Section */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Input Fields */
+.admin-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.admin-input:focus {
+  border-color: #1cd7a7;
+  background-color: #f9f9f9;
+  outline: none;
+}
+
+/* Question Block */
+.admin-question-block {
+  background: #f4f9ff;
+  border: 1px solid #cce5ff;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.admin-question-block h4 {
+  font-size: 1rem;
+  color: #0f66d2;
+  margin-bottom: 0.5rem;
+}
+
+/* Submit Button */
+.admin-submit-btn {
+  background-color: #1cd7a7;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.admin-submit-btn:hover {
+  background-color: #17b296;
+  transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .admin-container {
+    padding: 1.5rem;
+  }
+
+  .admin-title {
+    font-size: 1.3rem;
+  }
+
+  .admin-input {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .admin-submit-btn {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+}

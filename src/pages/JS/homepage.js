@@ -1,60 +1,68 @@
-import React from "react";
-import '../css/homepage.css';
-import cakeImg from "../../images/cake.jpeg"; // Adjust path as per your project
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { db } from "../../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import logo from "../../images/logosch.png";
+import "../css/home.css";
 
-const HomePage = () => {
+const HomePage = ({ setName, setUserId }) => {
+  const [inputName, setInputName] = useState("");
+  const navigate = useNavigate();
+
+  const handleStart = async () => {
+    const name = inputName.trim();
+    if (!name) return;
+
+    try {
+      const docRef = await addDoc(collection(db, "quiz-users"), {
+        name,
+        startedAt: serverTimestamp(),
+      });
+
+      setName(name);
+      setUserId(docRef.id);
+
+      navigate("/quiz");
+    } catch (error) {
+      console.error("Error saving user: ", error);
+      alert("Failed to start quiz. Try again.");
+    }
+  };
+
   return (
-    <div className="home-container">
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="logo">🎂 Sweet Cakes</div>
-        <div className="nav-links">
-          <a href="/" className="nav-link">Home</a>
-          <a href="/birthdaycake" className="nav-link">BirthdayCake</a>
-          <a href="/register" className="nav-link">Register</a>
-              <a href="/contact" className="nav-link">Contact Us</a>
-              <a href="/contact" className="nav-link">Contact Us</a>
-              <a href="/contact" className="nav-link">Contact Us</a>
-              <a href="/contact" className="nav-link">Contact Us</a>
+    <div className="homepage">
+      <div className="card">
+        <img src={logo} alt="SchoolMentor Logo" className="logo" />
+        <h1 className="title">Welcome to SchoolMentor Training Quiz</h1>
+        <h2 className="subtitle">
+          Topic: Art of Teaching and Its Impact on Students
+        </h2>
 
+        <div className="rules">
+          <h3>Quiz Guidelines</h3>
+          <ul>
+            <li>Answer all questions honestly.</li>
+            <li>Each question has one correct answer.</li>
+            <li>Your name will be printed on the certificate.</li>
+          </ul>
         </div>
-      </nav>
 
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-text">
-          <h1>Delicious Cakes for Every Occasion</h1>
-          <p>Freshly baked, beautifully crafted, and delivered to your door.</p>
-          <a href="/menu" className="hero-btn">Explore Menu</a>
-        </div>
-        <div className="hero-image">
-          <img src={cakeImg} alt="Cake" />
-        </div>
-      </section>
+        <input
+          type="text"
+          className="name-input"
+          placeholder="Enter your full name"
+          value={inputName}
+          onChange={(e) => setInputName(e.target.value)}
+        />
 
-      {/* About Section */}
-      <section className="about">
-        <h2>Why Choose Sweet Cakes?</h2>
-        <div className="about-content">
-          <div className="about-card">
-            <h3>Fresh Ingredients</h3>
-            <p>Our cakes are made with the finest and freshest ingredients.</p>
-          </div>
-          <div className="about-card">
-            <h3>Custom Designs</h3>
-            <p>Get cakes tailored to your events—weddings, birthdays, and more.</p>
-          </div>
-          <div className="about-card">
-            <h3>Fast Delivery</h3>
-            <p>Delivered right to your doorstep on time, every time.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Sweet Cakes | All Rights Reserved</p>
-      </footer>
+        <button
+          className="start-btn"
+          onClick={handleStart}
+          disabled={!inputName.trim()}
+        >
+          Proceed to Quiz
+        </button>
+      </div>
     </div>
   );
 };

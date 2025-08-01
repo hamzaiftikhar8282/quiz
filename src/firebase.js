@@ -1,26 +1,25 @@
-// firebase.js
-
+// Import the functions you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
 
+// Your Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyDAg09Wr07J2IU9_6klRcRCYikxQWU-hBk",
-  authDomain: "cake-6c44d.firebaseapp.com",
-  projectId: "cake-6c44d",
-  storageBucket: "cake-6c44d.firebasestorage.app",
-  messagingSenderId: "74272393983",
-  appId: "1:74272393983:web:71c86ea16b035d59a71aca",
-  measurementId: "G-BNZHK733GJ"
+  apiKey: "AIzaSyDwvAuTLKD7csp8ceAbTXSiTJNS3JpIZ4M",
+  authDomain: "quiz-87a80.firebaseapp.com",
+  projectId: "quiz-87a80",
+  storageBucket: "quiz-87a80.appspot.com",
+  messagingSenderId: "409501561061",
+  appId: "1:409501561061:web:3cf8137356db607e59240c",
+  measurementId: "G-5Q20LZ07B3"
 };
-
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth(app);
+
+// Initialize Firestore
 const db = getFirestore(app);
 
-// ✅ Export needed instances
-export { auth, db, analytics };
+// ✅ Export the Firestore instance
+export { db };
