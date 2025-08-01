@@ -5,7 +5,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import logo from "../../images/logosch.png";
 import "../css/home.css";
 
-const HomePage = ({ setName, setUserId }) => {
+const Dash = ({ setName, setUserId }) => {
   const [inputName, setInputName] = useState("");
   const navigate = useNavigate();
 
@@ -67,4 +67,4 @@ const HomePage = ({ setName, setUserId }) => {
   );
 };
 
-export default HomePage;
+export default Dash;
