@@ -17,7 +17,7 @@ const [userId, setUserId] = useState(""); // ← New
       <Router>
         <Routes>
 
- <Route path="/" element={<Dash setName={setName} setUserId={setUserId} />} />
+ <Route path="/" element={<HomePage setName={setName} setUserId={setUserId} />} />
 <Route path="/quiz" element={<Quiz setScore={setScore} userId={userId} name={name} />} />
 
 
